@@ -17,8 +17,12 @@ func alienToInt(s string) int {
 
 	for i := 0; i < n; i++ {
 		value := alienValues[s[i]]
+		nextValue := 0
+		if i+1 < n {
+			nextValue = alienValues[s[i+1]]
+		}
 
-		if i+1 < n && value < alienValues[s[i+1]] {
+		if value < nextValue {
 			total -= value
 		} else {
 			total += value
